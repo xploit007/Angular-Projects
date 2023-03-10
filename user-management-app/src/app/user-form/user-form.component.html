@@ -1,0 +1,48 @@
+
+<form [formGroup]="form" (ngSubmit)="submit()" #myForm="ngForm">
+  <div class="container" align="center" style="border: 2px solid black; padding: 10px ;max-width: 450px; margin: auto;">
+     <h1 align="center"><u>FORM</u></h1>
+
+  <div >
+      <mat-form-field appearance="outline" >
+        <mat-label>Name</mat-label>
+        <input matInput formControlName="name"  type="text" required>
+        <mat-error *ngIf="form.get('name')?.hasError('required')">Name is required</mat-error>
+      </mat-form-field>
+    </div>
+    <div >
+      <mat-form-field appearance="outline">
+        <mat-label>Password</mat-label>
+        <input matInput formControlName="password" type="password"  required>
+        <mat-error *ngIf="form.get('password')?.hasError('required')">Password is required</mat-error>
+      </mat-form-field>
+    </div>
+    <div >
+      <mat-form-field appearance="outline">
+        <mat-label>Email</mat-label>
+        <input matInput formControlName="email"  type="email" required >
+        <mat-error *ngIf="form.get('email')?.hasError('required')">Email is required</mat-error>
+        <mat-error *ngIf="form.get('email')?.hasError('email')">Invalid email</mat-error>
+      </mat-form-field>
+    </div>
+ 
+    <div >
+      <mat-form-field appearance="outline">
+        <mat-label>Phone</mat-label>
+        <input matInput formControlName="phone" type="number" required >
+        <mat-error *ngIf="form.get('phone')?.hasError('required')">Phone is required</mat-error>
+      </mat-form-field>
+    </div>
+    <div >
+      <mat-form-field appearance="outline">
+        <mat-label>Country</mat-label>
+        <input matInput formControlName="country" type="text"  required >
+        <mat-error *ngIf="form.get('country')?.hasError('required')">Country is required</mat-error>
+      </mat-form-field>
+    </div>
+    <div class="example-button-row">
+       <button mat-flat-button color="primary" type="submit"  >Submit</button>
+    </div>
+
+  </div>
+</form>
